@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Contract creating page</h1>
+<div class="container">
+<form class="form" th:method="POST" th:action="@{/admin/createContract/{id}(id=${visit.getId()})}" th:object="${contract}">
+
+    <p><input type="text" placeholder="Enter the contract's number" th:field="*{ContractNumber}" id="number"/></p>
+
+    <p><input type="text" placeholder="Enter the description" th:field="*{text}" id="text"/></p>
+    <p><input class="form__btn" type="submit" value="Create"/></p>
+
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

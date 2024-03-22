@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/user/doctorPageStyles.css}">
+    <title>Hospital Web App</title>
+</head>
+<body>
+<div class="container">
+    <h1>Doctor's <span>page</span></h1>
+    <div class="content">
+        <div class="block__text">
+            <div class="block-item">
+                <p class="block-item__title" >Full name</p>
+                <p class="block-item__info" th:text="${doctor.getFullName()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Specialization</p>
+                <p class="block-item__info" th:text="${doctor.getSpecialization()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Start of working</p>
+                <p class="block-item__info" th:text="${doctor.getFinishTime()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Finish of working</p>
+                <p class="block-item__info" th:text="${doctor.getStartTime()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Additional information</p>
+                <p class="block-item__info" th:text="${doctor.getAdditionalInfo()}">Текст</p>
+            </div>
+        </div>
+        <div class="block__img">
+            <img class="img" th:src="${doctor.getUrl()}">
+        </div>
+    </div>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

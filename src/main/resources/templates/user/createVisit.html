@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${show}">
+    <form class="form" th:method="POST" th:action="@{/user/createVisit}">
+    <h3>Выберите дату и время</h3>
+    <p><input type="date" min="2023-12-11" value="2023-12-11" max="2023-12-18" th:name="date"></p>
+    <select class="form__select" th:object="${visit}" th:field="*{timeOfVisit}" id="t">
+        <option th:each="t : ${freeTime}" th:value="${t}" th:text="${t}">
+        </option>
+
+    </select>
+        <div style="color:red" th:if="${error}">
+            <p>Это время приема уже занято</p>
+        </div>
+
+    <h3>Выберите доктора</h3>
+    <select class="form__select" th:object="${doctor}" th:field="*{id}" id="doc">
+        <option th:each="d : ${doctors}" th:value="${d.getId()}" th:text="${d.getFullName()}">
+        </option>
+    </select>
+
+
+    <p><input class="form__btn" type="submit" value="Записаться на прием"/></p>
+
+</form>
+    </div>
+    <p th:if="!${show}" >У вас нет карты</p>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">На главную</a>
+    </div>
+</div>
+
+</body>
+</html>

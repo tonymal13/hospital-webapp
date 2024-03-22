@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Doctor's visits page</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+        <th>Visit's id</th>
+        <th>Date of visit</th>
+        <th>Time of visit</th>
+        </thead>
+        <tbody th:each="v :${visits}">
+        <td><a th:href="@{/user/visits/{id}(id=${v.getId()})}" th:text="${v.getId()}"></a></td>
+        <td th:text="${v.getDateOfVisit()}"></td>
+        <td th:text="${v.getTimeOfVisit()}"></td>
+        </tbody>
+    </table>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

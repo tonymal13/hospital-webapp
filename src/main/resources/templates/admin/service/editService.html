@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Service editing page</h1>
+<div class="container">
+<form th:method="PATCH" th:action="@{/admin/editService}" th:object="${service}">
+    <p><input type="text" placeholder="Enter the title" th:field="*{title}" id="title"/></p>
+    <p><input type="text" placeholder="Enter the price" th:field="*{price}" id="price"/></p>
+    <p>
+        <button class="form__btn form__btn_signUp">Edit</button>
+    </p>
+</form>
+<div class="button">
+    <a th:href="@{/index}" class="button button__red">To the main page</a>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Our clients</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+        <th>Client's name</th>
+        <th>Date of birth</th>
+        <th>Phone number</th>
+        </thead>
+        <tbody th:each="c: ${clients}">
+        <td><a th:href="@{/user/client/{id}(id=${c.getId()})}" th:text="${c.getFullName()}"></a></td>
+        <td th:text="${c.getDateOfBirth()}"></td>
+        <td th:text="${c.getPhoneNumber}"></td>
+        </tbody>
+    </table>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Запросы на прием</h1>
+<div class="container">
+<div th:each="r:${requests}">
+    <p th:text="${r.getUserFullName()}"></p>
+</div>
+
+<form class="form " th:method="POST" th:action="@{/admin/acceptRequest}">
+    <h3 class="form__title">Выберите запрос</h3>
+    <div class="form-select-wrapper">
+    <select class="form__select" th:object="${request}" th:name="id" id="id">
+        <option th:each="r : ${requests}" th:value="${r.getId()}" th:text="${r.getUserFullName()}">
+        </option>
+    </select>
+    </div>
+    <p><input class="form__btn"  type="submit" value="Принять запрос"/></p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">На главную</a>
+    </div>
+</div>
+
+</body>
+</html>

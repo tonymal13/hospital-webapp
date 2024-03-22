@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1 class="form__title">Doctor creating page</h1>
+<div class="container">
+<form class="form" th:method="POST" th:action="@{/admin/createDoctor}" th:object="${doctor}">
+    <p><input class="form__input" type="text" th:field="*{fullName}" placeholder="Enter doctor's name" id="fullName"/></p>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+    <p><input class="form__input" type="text" th:field="*{additionalInfo}" placeholder="Enter additional info" id="additionalInfo"/></p>
+    <p><input class="form__input" type="text" th:field="*{startTime}" placeholder="Enter start time" id="startTime"/></p>
+    <div style="color:red" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+    <p><input class="form__input" type="text" th:field="*{finishTime}" placeholder="Enter finish time" id="finishTime"/></p>
+    <div style="color:red" th:if="${#fields.hasErrors('finishTime')}" th:errors="*{finishTime}"></div>
+    <p><input class="form__input" type="text" th:field="*{specialization}" placeholder="Enter specialization " id="specialization"/></p>
+    <p><input class="form__input" type="text" th:field="*{password}" placeholder="Enter password" id="password"/></p>
+    <p><input class="form__input" type="text" th:field="*{phoneNumber}" placeholder="Enter phone number" id="phoneNumber"/></p>
+    <div style="color:red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Формат ввода номера: 8xxxxxxxxxx</div>
+    <p><input class="form__input" type="text" placeholder="Add photo" th:field="*{url}" id="url"/></p>
+    <p>
+        <button class="form__btn form__btn_signUp">Create</button>
+    </p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

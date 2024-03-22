@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Card creating page</h1>
+<div class="container">
+<form class="form" th:method="POST" th:action="@{/admin/createCard/{id}(id=${userId})}">
+    <p><input class="form__input" placeholder="Enter card's number" type="text" th:name="cardId" id="id"/></p>
+    <p>
+        <input type="submit" class="form__btn" value="Create">
+    </p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+
+</body>
+</html>

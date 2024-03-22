@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Service creating page</h1>
+<div class="container">
+<form class="form" th:method="POST" th:action="@{/admin/createService}" th:object="${service}">
+    <p><input type="text" placeholder="Enter the title" th:field="*{title}" id="title"/></p>
+    <p><input type="text" placeholder="Enter the price" th:field="*{price}" id="price"/></p>
+    <p><input class="form__btn" type="submit" value="Create"/></p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

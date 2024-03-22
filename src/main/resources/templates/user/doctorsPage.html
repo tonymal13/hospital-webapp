@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Наши <span>врачи</span></h1>
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <th>Имя врача</th>
+        <th>Специализация</th>
+        <th>Дополнительная информация</th>
+        </thead>
+        <tbody th:each="doctor : ${doctors}">
+        <td><a th:href="@{/doctor/doctorPage/{id}(id=${doctor.getId()})}" th:text="${doctor.getFullName()}"></a></td>
+        <td th:text="${doctor.getSpecialization()}"></td>
+        <td th:text="${doctor.getAdditionalInfo()}"></td>
+        </tbody>
+    </table>
+
+    <form class="form" th:method="POST" th:action="@{/doctor/search}">
+        <h3>Введите имя доктора</h3>
+        <p><input type="text" id="query" name="query"/></p>
+        <p><input class="form__btn" type="submit" value="Искать!"/></p>
+    </form>
+
+    <div class="form-box" th:if="${show}">
+
+
+    <form class="form form_delete" th:method="DELETE" th:action="@{/admin/deleteDoctor}">
+        <h3 class="form__title">Выберите доктора</h3>
+        <div class="form-select-wrapper">
+        <select class="form__select" th:object="${doctor}" th:field="*{id}" id="id">
+            <option th:each="d : ${doctors}" th:value="${d.getId()}" th:text="${d.getFullName()}">
+            </option>
+        </select>
+        </div>
+        <p><input class="form__btn"  type="submit" value="Удалить доктора"/></p>
+    </form>
+
+    <form class="form" th:method="GET" th:action="@{/admin/editDoctor}">
+        <h3 class="form__title">Выберите доктора</h3>
+        <div class="form-select-wrapper">
+        <select class="form__select" th:object="${doctor}" th:field="*{id}" id="id">
+            <option th:each="d : ${doctors}" th:value="${d.getId()}" th:text="${d.getFullName()}">
+            </option>
+        </select>
+        </div>
+        <p><input class="form__btn" type="submit" value="Редактировать"/></p>
+    </form>
+
+    <div class="button">
+        <a th:href="@{/admin/createDoctor}" class="button button__red">Добавить доктора</a>
+    </div>
+    </div>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">На главную</a>
+    </div>
+</div>
+</body>
+</html>

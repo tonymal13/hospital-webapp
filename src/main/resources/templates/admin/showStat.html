@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/user/doctorPageStyles.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Statistic <span>page</span></h1>
+    <div class="content">
+        <div class="block__text">
+            <div class="block-item">
+                <p class="block-item__title" >The most popular doctor</p>
+                <p class="block-item__info" th:text="${doctor.getFullName()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >The most expensive service</p>
+                <p class="block-item__info" th:text="${expensiveService}">Текст</p>
+            </div>
+        </div>
+        <div class="block__text">
+            <div class="block-item">
+            <p class="block-item__title" th:text="'Number of patients'"></p>
+            <p class="block-item__info" th:text="${numberOfUsers}"></p>
+            </div>
+        </div>
+    </div>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

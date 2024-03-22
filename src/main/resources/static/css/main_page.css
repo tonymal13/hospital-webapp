@@ -1,0 +1,273 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+.wrapper {
+}
+.header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header_container {
+    display: flex;
+    max-width: 1090px;
+    margin: 0px auto;
+    min-height: 114px;
+    align-items: center;
+}
+.header_logo {
+}
+.header_menu {
+    flex:1 1 auto;
+}
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+.menu__list {
+    display: flex;
+    gap: 40px;
+}
+.menu__item {
+}
+
+.menu__link {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 1.2;
+    color: black;
+    letter-spacing: 1px;
+}
+.menu__link:hover{
+    text-decoration: underline;
+}
+.header_button {
+    flex:0 0 250px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.button{
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color:#fcfdfe;
+    padding: 14px 30px;
+    border-radius: 5px;
+    background: #4285F4;
+    transition: background-color 0.3s ease 0s;
+}
+.button:hover{
+    background: #70A3F7;
+}
+/* ----------------------------------------------------- */
+.main {
+}
+.get-started {
+    background: #fafbfd;
+}
+.get-started__container {
+    padding: 150px 15px 50px 15px;
+    display: flex;
+    max-width: 1090px;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+}
+.get-started__container::before{
+    content: "";
+    position:absolute;
+    width: 100vw;
+    height: 100%;
+    right: 230px;
+    top: 0;
+    transform: translate(100%,0px);
+    background: #ec5863;
+    border-radius: 30px 0px 0px 30px;
+}
+.get-started__content {
+    flex:0 1 47%;
+    padding: 0px 0px 0px 20px;
+}
+/* -------------------------------------------- */
+.block-text {
+}
+.block-text__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 125%;
+    color:black;
+}
+.block-text__title:not(:last-child) {
+    margin: 0px 0px 12px 0px;
+}
+.block-text__title span {
+    color:#ec5863;
+}
+.block-text__title_blue span{
+    color:#4285F4;
+}
+.block-text__text {
+    line-height: 139%;;
+}
+.block-text__text:not(:last-child) {
+    margin: 0px 0px 24px 0px;
+}
+.block-text__button {
+    background: #ec5863;
+
+}
+/* --------------------------------------------- */
+.get-started__video {
+    flex:1 1 100%;
+    padding: 60px 0px 0px 20px;
+}
+.video-get-started {
+    display: inline-flex;
+    align-items: center;
+}
+.video-get-started__icon {
+    flex:0 0 44px;
+}
+.video-get-started__body {
+    padding: 0px 0px 0px 12px;
+}
+.video-get-started__title {
+    color:#b0b0b0;
+    font-size: 13px;
+    line-height: 126%;
+    letter-spacing: 1.5px;
+}
+.video-get-started__title:not(:last-child) {
+    margin: 0px 0px 5px 0px;
+}
+.video-get-started__text {
+    text-transform: uppercase;
+    font-size: 9px;
+    line-height: 126%;
+    letter-spacing: 2px;
+    color: #000;
+}
+.get-started__image{
+    flex: 0 1 53%;
+    position: relative;
+    z-index: 2;
+}
+.get-started__image img{
+    max-width: 100%;
+}
+
+/* ------------------------------------------- */
+
+.experts {
+    background-color: #fafbfd;
+    padding: 53px 0px 116px 0px;
+}
+.experts__container {
+    max-width: 1090px;
+    margin: 0px auto;
+}
+.experts_statistics {
+}
+.statistics-experts {
+    max-width: 654px;
+    margin: 0px auto;
+
+    position: relative;
+}
+.statistics-experts__body {
+    background-color: #fff;
+    box-shadow: 0px 2px 24px rgba(88, 126, 236, 0.15);
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+    margin: 0px 0px 80px 0px;
+}
+.body-statistics-experts {
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+}
+.body-statistics-experts__item {
+    flex:1 1 25%;
+}
+.body-statistics-experts__value {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #ec5863;
+}
+.body-statistics-experts__text {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: black;
+}
+.statistics-experts__decor {
+    position: absolute;
+    background-color: #ec5863;
+    border-radius: 30px;
+}
+.statistics-experts__decor_1 {
+    width: 65px;
+    height: 65px;
+    transform: rotate(-30deg);
+    bottom: -31px;
+    left: -31px;
+    border-radius: 16px;
+}
+.statistics-experts__decor_2 {
+    width: 97px;
+    height: 97px;
+    right: 50%;
+    top: -40px;
+    transform: rotate(30deg);
+}
+
+.experts__block-text{
+    max-width: 400px;
+}
+.experts__body{
+    display: flex;
+}

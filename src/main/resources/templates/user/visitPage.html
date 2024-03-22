@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Visit's page</h1>
+<div class="container">
+    <p th:text="'Client name: '+ ${visit.getCard().getUser().getFullName()}"></p>
+    <p th:text="'Date of visit: '+ ${visit.getDateOfVisit()}"></p>
+    <p th:text="'Time of visit: '+ ${visit.getTimeOfVisit()}"></p>
+    <p th:text="'Doctor: '+ ${visit.getDoctor().getFullName()}"></p>
+    <p th:text="'Treatment info: '+ ${visit.getTreatmentInfo()}"></p>
+    <a th:if="${show}" th:text="'Contract number'+ ${visit.getContract().getContractNumber()}"></a>
+
+<form th:if="${choice=='a'}" class="form" th:method="GET" th:action="@{/doctor/editVisit/{id}(id=${visit.getId()})}">
+    <p><input class="form__btn" type="submit" value="Edit"/></p>
+</form>
+
+<form th:if="${choice=='a'}" class="form" th:method="GET" th:action="@{/admin/createContract/{id}(id=${visit.getId()})}">
+    <p><input class="form__btn" type="submit" value="Create contract"/></p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

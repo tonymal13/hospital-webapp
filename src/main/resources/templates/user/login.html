@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>HospitalWebApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/user/loginStyles.css}">
+    <script th:src="@{/js/loginScrypt.js}" defer></script>
+</head>
+<body>
+<article class="container">
+    <div class="block">
+        <section class="block__item block-item">
+            <h2 class="block-item__title">У вас уже есть аккаунт?</h2>
+            <button class="block-item__btn signIn-btn">Войти</button>
+        </section>
+        <section class="block__item block-item">
+            <h2 class="block-item__title">У вас нет аккаунта?</h2>
+            <button class="block-item__btn signUp-btn">Зарегестрироваться</button>
+        </section>
+    </div>
+    <div class="form-box">
+        <form method="post" action="/process_login" class="form form_signIn">
+            <h3 class="form__title">Вход</h3>
+            <p>
+                <input type="text" name="username" class="form__input" placeholder="Имя">
+            </p>
+            <p>
+                <input type="password" name="password" class="form__input" placeholder="Пароль">
+            </p>
+            <p>
+                <input type="submit" class="form__btn" value="Войти">
+            </p>
+        </form>
+        <form th:method="POST" th:action="@{/user/registration}" th:object="${user}" class="form form_signUp">
+            <h3 class="form__title">Регистрация</h3>
+            <p>
+                <input type="text" th:field="*{fullName}" class="form__input" placeholder="Имя">
+                <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+            </p>
+
+            <p>
+                <input type="date" min="2023-11-20" max="2023-11-21" th:field="*{dateOfBirth}" class="form__input" placeholder="Дата рождения">
+            <div style="color:red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Формат ввода даты: гггг-мм-дд</div>
+            </p>
+            <p>
+                <input type="password" th:field="*{password}" class="form__input" placeholder="Пароль">
+            </p>
+            <p>
+                <input type="tel" th:field="*{phoneNumber}" class="form__input" placeholder="Номер телефона">
+            <div style="color:red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Формат ввода номера: 8xxxxxxxxxx</div>
+            </p>
+            <p>
+                <button class="form__btn form__btn_signUp">Зарегестрироваться</button>
+            </p>
+        </form>
+
+    </div>
+</article>
+
+</body>
+</html>

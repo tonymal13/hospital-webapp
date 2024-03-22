@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Страница договора об оказании услуг</h1>
+<div class="container">
+
+    <div>
+        <h3>Содержание контракта</h3>
+        <p th:if="${contract!=null}" th:text="${contract.getText()}" ></p>
+    </div>
+
+
+<p th:if="${contract==null}" >Контракта нет</p>
+<div class="button">
+    <a th:href="@{/index}" class="button button__red">На главную</a>
+</div>
+</div>
+</body>
+</html>

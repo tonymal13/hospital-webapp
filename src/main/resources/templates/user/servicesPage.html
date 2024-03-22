@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>HospitalWebApp</title>
+</head>
+<body>
+    <h1>Наши <span>услуги</span></h1>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <th>Название услуги</th>
+            <th>Цена</th>
+            </thead>
+            <tbody th:each="service : ${services}">
+                <td th:text="${service.getTitle()}" th:href="@{/admin/services/{id}(id=${service.getId()})}"></td>
+                <td th:text="${service.getPrice()}"></td>
+            </tbody>
+        </table>
+
+            <div class="form-box" th:if="${show}">
+                <form class="form form_delete"  th:method="DELETE" th:action="@{/admin/deleteService}">
+                    <h3 class="form__title">Выберите услугу</h3>
+                    <div class="form-select-wrapper">
+                    <select class="form__select" th:object="${service}" th:field="*{id}">
+                        <option th:each="s : ${services}" th:value="${s.getId()}" th:text="${s.getTitle()}">
+                        </option>
+                    </select>
+                    </div>
+                    <p><input type="submit" class="form__btn" value="Удалить услугу"/></p>
+                </form>
+
+
+                <form th:method="GET" th:action="@{/admin/editService}">
+                    <h3 class="form__title">Выберите услугу</h3>
+                    <div class="form-select-wrapper">
+                    <select class="form__select" th:object="${service}" th:field="*{id}">
+                        <option th:each="s : ${services}" th:value="${s.getId()}" th:text="${s.getTitle()}">
+                        </option>
+                    </select>
+                    </div>
+
+                    <p><input class="form__btn"  type="submit" value="Редактировать услугу"/></p>
+                </form>
+
+                <div class="button">
+                    <a th:href="@{/admin/createService}" class="button button__red">Добавить услугу</a>
+                </div>
+            </div>
+        <div class="button">
+            <a th:href="@{/index}" class="button button__red">На главную</a>
+        </div>
+    </div>
+</body>
+</html>

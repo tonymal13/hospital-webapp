@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Client's page</h1>
+<div class="container">
+<p th:text="${client.getFullName()}"></p>
+<p th:text="${client.getDateOfBirth()}"></p>
+<p th:text="${client.getPhoneNumber()}"></p>
+
+<div th:if="${visits}!=null" th:each="v :${visits}">
+    <h2>Client's visits</h2>
+    <p><a th:href="@{/user/visits/{id}(id=${v.getId()})}" th:text="${v.getId()}">aaa</a></p>
+</div>
+
+<form th:if="(${show})" class="form" th:method="GET" th:action="@{/admin/createCard/{id}(id=${client.getId()})}">
+    <p><input class="form__btn" type="submit" value="Create outpatient card"/></p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

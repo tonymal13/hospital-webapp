@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/main_page.css}">
+    <title>Title</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_container">
+                <a href="" class="header_logo">
+                    <img th:src="@{/img/logo.svg}" alt="Логотип">
+                </a>
+                <div class="header_menu menu">
+                    <nav id="menu"class="menu__body">
+                        <ul class="menu__list">
+                            <li class="menu__item"><a th:href="@{/user/servicesPage}" class="menu__link">Services</a></li>
+                            <li class="menu__item"><a th:href="@{/user/doctorsPage}" class="menu__link">Doctors</a></li>
+                            <li th:if="(not((${user.getRole()}=='ROLE_ADMIN') or (${user.getRole()}=='ROLE_DOCTOR')))" class="menu__item"><a  th:href="@{/user/createVisit}" class="menu__link">Make an appointment</a></li>
+<!--                            <li th:if="${user.getRole()}=='ROLE_ADMIN'" class="menu__item"><a  th:href="@{/admin/requests}" class="menu__link">Запросы</a></li>-->
+                            <li th:if="(${user.getRole()}=='ROLE_ADMIN') or (${user.getRole()}=='ROLE_DOCTOR')"class="menu__item"><a th:href="@{/doctor/clientsPage}" class="menu__link">Clients</a></li>
+                            <li th:if="(${user.getRole()}=='ROLE_DOCTOR')"class="menu__item"><a th:href="@{/doctor/visitsPage}" class="menu__link">Visits</a></li>
+                            <li th:if="(${user.getRole()}=='ROLE_ADMIN')"class="menu__item"><a th:href="@{/admin/showStat}" class="menu__link">Statistic</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header_button">
+                    <a th:href="@{/user/personalAccount}" class="button button__blue">Personal account</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="get-started">
+                <div class="get-started__container">
+                    <div class="get-started__content">
+                        <div class="get-started__block-text block-text">
+                            <h1 class= "block-text__title block-text__title_blue">Take care of yours family’s <span>health.</span></h1>
+                            <div class="block-text__text">All in one destination for health queries.  Consult 10,000+ health workers about your concerns.</div>
+                            <a href="" class="block-text__button button">GET STARTED</a>
+                        </div>
+                    </div>
+                    <div class="get-started__image">
+                        <img src="img/get-started/image.svg">
+                    </div>
+                    <div class="get-started__video">
+                    <a href="" class="video-get-started">
+                        <div class="video-get-started__icon">
+                            <img src="img/get-started/play.svg" alt="Play">
+                        </div>
+                        <div class="video-get-started__body">
+                            <div class="video-get-started__title"></div>
+                            <div class="video-get-started__text"></div>
+                        </div>
+                    </a>
+                </div>
+                </div>
+            </section>
+            <section class="experts">
+                <div class="experts__container">
+                    <div class="experts_statistics statistics-experts">
+                        <div class="statistics-experts__body body-statistics-experts">
+                            <div class="body-statistics-experts__item">
+                                <div class="body-statistics-experts__value">2m</div>
+                                <div class="body-statistics-experts__text">Users</div>
+                            </div>
+                            <div class="body-statistics-experts__item">
+                                <div class="body-statistics-experts__value">78</div>
+                                <div class="body-statistics-experts__text">Countries</div>
+                            </div>
+                            <div class="body-statistics-experts__item">
+                                <div class="body-statistics-experts__value">10,000+</div>
+                                <div class="body-statistics-experts__text">Medical experts</div>
+                            </div>
+                        </div>
+                        <div class="statistics-experts__decor statistics-experts__decor_1"></div>
+                        <div class="statistics-experts__decor statistics-experts__decor_2"></div>
+                        <div class="statistics-experts__decor statistics-experts__decor_3"></div>
+                    </div>
+                    <div class="experts__body">
+                        <div class="experts__content">
+                            <div class="experts__block-text block-text">
+                                <h2 class="block-text__title block-text__title_blue">Talk to <span>experts.</span></h2>
+                                <div class="block-text__text">Book appointments or submit queries into thousands of forums concerning health issues and prevention against noval Corona Virus.</div>
+                                <a href="" class="block-text__button button">Features</a>
+                            </div>
+                        </div>
+                        <div class="experts__video">
+                            <a href="" class="video-experts">
+                                <div class="video-experts__icon">
+                                    <img src="img/experts/play.png" alt="Play">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            Footer
+        </footer>
+
+    </div>
+</body>
+</html>

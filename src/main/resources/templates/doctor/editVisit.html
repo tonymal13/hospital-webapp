@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Visit editing page</h1>
+<div class="container">
+<form class="form" th:method="PATCH" th:action="@{/doctor/visits/{id}(id=${visit.getId()})}">
+    <p><input placeholder="Enter the information" type="text" th:name="treatmentInfo" id="info"/></p>
+    <p>
+        <button class="form__btn form__btn_signUp">Edit</button>
+    </p>
+</form>
+    <div class="button">
+        <a th:href="@{/index}" class="button button__red">To the main page</a>
+    </div>
+</div>
+</body>
+</html>

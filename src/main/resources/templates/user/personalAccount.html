@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/user/personalAccStyles.css}">
+</head>
+<body>
+<h1>Personal account</h1>
+<div class="container">
+
+
+        <div th:if="${choice=='u'}" class="content">
+
+            <div class="block__text">
+            <div class="block-item">
+                <p class="block-item__title" >FullName</p>
+                <p class="block-item__info" th:text="${user.get().getFullName()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Date of birth</p>
+                <p class="block-item__info" th:text="${user.get().getDateOfBirth()}">Текст</p>
+            </div>
+            <div class="block-item">
+                <p class="block-item__title" >Phone number</p>
+                <p class="block-item__info" th:text="${user.get().getPhoneNumber()}">Текст</p>
+            </div>
+            </div>
+            <div class="block__visits">
+                <div class="block-item">Visits</div>
+                <div th:each="v: ${visits}" class="block-item">
+                    <a class="block-item__info" th:href="@{/user/visits/{id}(id=${v.getId()})}" th:text="${v.getId()}">Текст</a>
+                    <p th:text="'Time of visit: '+${v.getDateOfVisit()}+' '+${v.getTimeOfVisit()}"></p>
+                </div>
+            </div>
+    </div>
+
+        <div th:if="${choice=='a'}" class="content">
+        <div class="block-item">
+            <p class="block-item__title" >Имя</p>
+            <p class="block-item__info" th:text="${admin.get().getFullName()}">Текст</p>
+        </div>
+        <div class="block-item">
+            <p class="block-item__title" >Номер телефона</p>
+            <p class="block-item__info" th:text="${admin.get().getPhoneNumber()}">Текст</p>
+        </div>
+    </div>
+        <div class="content" th:if="${choice=='d'}">
+            <div class="block__text">
+                <div class="block-item">
+                    <p class="block-item__title" >Имя</p>
+                    <p class="block-item__info" th:text="${doctor.get().getFullName()}">Текст</p>
+                </div>
+                <div class="block-item">
+                    <p class="block-item__title" >Специальность</p>
+                    <p class="block-item__info" th:text="${doctor.get().getSpecialization()}">Текст</p>
+                </div>
+                <div class="block-item">
+                    <p class="block-item__title" >Начало работы</p>
+                    <p class="block-item__info" th:text="${doctor.get().getFinishTime()}">Текст</p>
+                </div>
+                <div class="block-item">
+                    <p class="block-item__title" >Окончание работы</p>
+                    <p class="block-item__info" th:text="${doctor.get().getStartTime()}">Текст</p>
+                </div>
+                <div class="block-item">
+                    <p class="block-item__title" >Дополнительная информация</p>
+                    <p class="block-item__info" th:text="${doctor.get().getAdditionalInfo()}">Текст</p>
+                </div>
+            </div>
+        </div>
+    <div class="button">
+        <a th:href="@{/logout}" class="button button__blue">Log out</a>
+    </div>
+<div class="button">
+    <a th:href="@{/index}" class="button button__red">To the main page</a>
+</div>
+</div>
+
+</body>
+</html>
