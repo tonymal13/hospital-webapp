@@ -32,32 +32,6 @@ public class OurUserDetailsService implements UserDetailsService {
         this.adminRepository = adminRepository;
         this.doctorRepository = doctorRepository;
     }
-    
-
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        Optional<OurUser> user= userRepository.findByFullName(username);
-//        System.out.println(username);
-//        if(user.isEmpty()){
-//            Optional<Admin> admin = adminRepository.findByFullName(username);
-//            if(admin.isEmpty()){
-//                Optional<Doctor> doctor = doctorRepository.findByFullName(username);
-//                if(doctor.isEmpty()){
-//                    throw new UsernameNotFoundException("User not found");
-//                }
-//                else{
-//                    return new DoctorDetails(doctor.get());
-//                }
-//            }
-//            else{
-//                return new AdminDetails(admin.get());
-//            }
-//        }
-//        else{
-//            return new OurUserDetails(user.get());
-//        }
-//
-//    }
 
 @Override
 public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

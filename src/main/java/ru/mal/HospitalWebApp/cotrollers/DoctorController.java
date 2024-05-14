@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.mal.HospitalWebApp.models.Doctor;
-import ru.mal.HospitalWebApp.models.Service;
 import ru.mal.HospitalWebApp.models.Visit;
 import ru.mal.HospitalWebApp.services.DoctorService;
-import ru.mal.HospitalWebApp.services.ServicesService;
 import ru.mal.HospitalWebApp.services.UserService;
 import ru.mal.HospitalWebApp.services.VisitService;
 
@@ -24,14 +22,11 @@ public class DoctorController {
 
     private final VisitService visitService;
 
-    private final ServicesService servicesService;
-
     @Autowired
-    public DoctorController(DoctorService doctorService, UserService userService, VisitService visitService, ServicesService servicesService) {
+    public DoctorController(DoctorService doctorService, UserService userService, VisitService visitService) {
         this.doctorService = doctorService;
         this.userService = userService;
         this.visitService = visitService;
-        this.servicesService = servicesService;
     }
 
     @PostMapping("/search")
@@ -56,7 +51,6 @@ public class DoctorController {
 
     @GetMapping("/editVisit/{id}")
     public String editVisit(@PathVariable("id") int id ,Model model){
-        Visit visit= (Visit) visitService.findOne(id);
         model.addAttribute("visit",visitService.findOne(id));
         return "doctor/editVisit";
     }

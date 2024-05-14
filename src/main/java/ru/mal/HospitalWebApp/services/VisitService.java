@@ -8,7 +8,6 @@ import ru.mal.HospitalWebApp.repositories.VisitRepository;
 import ru.mal.HospitalWebApp.models.Doctor;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 @Service

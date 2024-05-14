@@ -8,7 +8,6 @@ import ru.mal.HospitalWebApp.models.OurUser;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class OurUserDetails implements UserDetails {
 

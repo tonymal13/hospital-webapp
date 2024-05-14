@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.mal.HospitalWebApp.repositories.ServicesRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

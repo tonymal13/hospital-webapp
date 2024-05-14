@@ -33,20 +33,17 @@ public class UserController {
 
     private final AdminService adminService;
 
-    private final RequestService requestService;
-
     private final UserValidator userValidator;
 
     private final VisitValidator visitValidator;
 
     @Autowired
-    public UserController(ServicesService servicesService, DoctorService doctorService, UserService userService, VisitService visitService, AdminService adminService, RequestService requestService, UserValidator userValidator, VisitValidator visitValidator) {
+    public UserController(ServicesService servicesService, DoctorService doctorService, UserService userService, VisitService visitService, AdminService adminService,UserValidator userValidator, VisitValidator visitValidator) {
         this.servicesService = servicesService;
         this.doctorService = doctorService;
         this.userService = userService;
         this.visitService = visitService;
         this.adminService = adminService;
-        this.requestService = requestService;
         this.userValidator = userValidator;
         this.visitValidator = visitValidator;
     }
@@ -218,10 +215,7 @@ public class UserController {
     @GetMapping("/visits/{id}")
     public String visitsPage(@PathVariable("id") int id, Model model){
         Visit visit= (Visit) visitService.findOne(id);
-        boolean show=false;
-        if(visit.getContract()!=null){
-            show=true;
-        }
+        boolean show= visit.getContract() != null;
         model.addAttribute("visit", visit);
         model.addAttribute("show",show);
 

@@ -10,10 +10,8 @@ import ru.mal.HospitalWebApp.models.*;
 import ru.mal.HospitalWebApp.services.*;
 import ru.mal.HospitalWebApp.util.DoctorValidator;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
@@ -26,17 +24,14 @@ public class AdminController {
 
     private final DoctorService doctorService;
 
-    private final RequestService requestService;
-
     private final DoctorValidator doctorValidator;
 
     @Autowired
-    public AdminController(UserService userService, VisitService visitService, ServicesService servicesService, DoctorService doctorService, RequestService requestService, DoctorValidator doctorValidator) {
+    public AdminController(UserService userService, VisitService visitService, ServicesService servicesService, DoctorService doctorService,DoctorValidator doctorValidator) {
         this.userService = userService;
         this.visitService = visitService;
         this.servicesService = servicesService;
         this.doctorService = doctorService;
-        this.requestService = requestService;
         this.doctorValidator = doctorValidator;
     }
 
@@ -162,9 +157,9 @@ public class AdminController {
 
     private Doctor findMostPopular(List<Doctor> doctors) {
         Doctor doctor=doctors.get(0);
-        for (int i=0;i<doctors.size();i++){
-            if (doctors.get(i).getNumberOfVisit()>doctor.getNumberOfVisit()){
-                doctor=doctors.get(i);
+        for (Doctor value : doctors) {
+            if (value.getNumberOfVisit() > doctor.getNumberOfVisit()) {
+                doctor = value;
             }
         }
         return doctor;
